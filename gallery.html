@@ -13,7 +13,7 @@
             background-color: #000;
             margin: 0;
             padding: 0;
-            overflow: scroll; 
+            overflow: auto 
         }
         nav {
             display: flex;
@@ -41,11 +41,11 @@
             text-shadow: 3px 4px 6px rgb(68, 76, 92), 0 0 0 #000, 1px 4px 6px rgb(68, 76, 92);
         }
     
-       
+        
         .gallery {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columns */
-            grid-template-rows: auto auto; /* 2 rows */
+            grid-template-columns: repeat(3, 1fr); 
+            grid-template-rows: auto auto; 
             gap: 20px;
             padding: 20px;
             max-width: 1200px; 
@@ -53,7 +53,7 @@
             box-sizing: border-box;
         }
     
-       
+ 
         .gallery img, .gallery video {
             width: 100%;
             height: auto;
@@ -103,13 +103,14 @@
   <body>
     <div class="gallery">
         <img src="final.jpg" alt="Image 1" onclick="openLightbox(this)">
-        <img src="Screenshot.png" alt ="Image 5" onclick="openLightbox(this)">
-        <video src="cine-roman.mp4" alt="Video 2" poster="IMG_0467.png" onclick="openLightbox(this)" muted></video>
+        <img src="Screenshot.png" alt ="Image 5" onclick="openLightbox(this)" >
+        <video src="cine-roman.mp4" alt="Video 1" poster="IMG_0467.png" onclick="openLightbox(this)" muted></video>
         <img src="Katelyn Sum_Ks6293_Ian.png" alt="Image 3" onclick="openLightbox(this)">
         <img src="sound visualization.png" alt="Image 4" onclick="openLightbox(this)">
         <img src="ILOVENOODS.jpg" alt="Image 2" onclick="openLightbox(this)">
     </div> 
 
+    
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="close">&times;</span>
         <img id="lightbox-img" class="lightbox-content">
@@ -153,7 +154,7 @@
 
             lightbox.style.display = "none";
             lightboxVideo.pause();
-            lightboxVideo.src = "";
+            lightboxVideo.src = ""; 
         }
     </script>
   </body> 

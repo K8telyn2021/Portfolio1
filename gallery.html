@@ -13,7 +13,7 @@
             background-color: #000;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Prevent scrolling */
+            overflow: scroll; 
         }
         nav {
             display: flex;
@@ -48,8 +48,8 @@
             grid-template-rows: auto auto; /* 2 rows */
             gap: 20px;
             padding: 20px;
-            max-width: 1200px; /* Max width for the gallery */
-            margin: 80px auto 60px auto; /* Center the gallery with some space at the top */
+            max-width: 1200px; 
+            margin: 80px auto 60px auto; 
             box-sizing: border-box;
         }
     
@@ -103,7 +103,7 @@
   <body>
     <div class="gallery">
         <img src="final.jpg" alt="Image 1" onclick="openLightbox(this)">
-        <video src="NYU_Katelyn Sum_Title Sequence.mp4" alt="Video 1" onclick="openLightbox(this)" muted></video>
+        <video src="NYU_Katelyn Sum Collage Assignemnt.mp4" alt="Video 1" onclick="openLightbox(this)" muted></video>
         <video src="cine-roman.mp4" alt="Video 2" poster="IMG_0467.png" onclick="openLightbox(this)" muted></video>
         <img src="Katelyn Sum_Ks6293_Ian.png" alt="Image 3" onclick="openLightbox(this)">
         <img src="sound visualization.png" alt="Image 4" onclick="openLightbox(this)">
@@ -154,7 +154,7 @@
 
             lightbox.style.display = "none";
             lightboxVideo.pause();
-            lightboxVideo.src = ""; // Clear video source to stop loading
+            lightboxVideo.src = "";
         }
     </script>
   </body> 

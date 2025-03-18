@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&display=swap">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    
+    <style>
+        body {
+            font-family: 'Fredoka', sans-serif;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around; 
+            background-color: black;
+            padding: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Fredoka', sans-serif;
+        }
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            position:absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 60px;
+            color: white;
+            text-shadow: 3px 4px 6px rgb(68, 76, 92), 0 0 0 #000, 1px 4px 6px rgb(68, 76, 92);
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
+  </head>
+  <body>
+  <center>
+    <nav>
+        <a href="index.html">HOME </a>
+        <a href="about.html">ABOUT</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="gallery.html">GALLERY</a>
+    </nav>
+    </center> `
+    <h1 id="id1">PROJECTS</h1>
+        <div id="sketch-container"></div>
+    <script>
+    let sketches = ["fireworks.js", "hearts.js", "beating.js", "swirl.js"];
+let currentIndex = 0;
+let currentSketch = null;
+
+function loadSketch(scriptName) {
+    // Remove the old script
+    let oldScript = document.getElementById("dynamicSketch");
+    if (oldScript) {
+        oldScript.remove();
+    }
+
+    // Properly clear the previous p5 instance
+    if (window.currentSketch) {
+        window.currentSketch.remove(); // Stops the previous sketch
+        window.currentSketch = null; // Ensure it's cleared
+    }
+
+    // Load the new script
+    let script = document.createElement("script");
+    script.id = "dynamicSketch";
+    script.src = scriptName;
+    script.onload = () => {
+        console.log(scriptName + " loaded successfully!");
+        window.currentSketch = new p5(); // Initialize the new sketch
+    };
+    script.onerror = () => console.error("Error loading " + scriptName);
+    document.body.appendChild(script);
+}
+
+// Initial sketch load
+loadSketch(sketches[currentIndex]);
+
+// Change sketch on right arrow key press
+document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowRight") {
+        currentIndex = (currentIndex + 1) % sketches.length; // Loop back to first sketch after the last one
+        loadSketch(sketches[currentIndex]);
+    }
+});
+
+
+    </script>
+  </body> 
+</html>

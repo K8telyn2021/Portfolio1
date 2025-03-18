@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&display=swap">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    
+    <style>
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        nav {
+            display: flex;
+            justify-content: space-around; 
+            background-color: black;
+            padding: 15px ;
+            position: fixed;
+            top: 5px;
+            width: 100%;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Fredoka', sans-serif;
+        }
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            position: absolute;
+            top: 100px;
+            left: 60px;
+            font-size: 60px;
+            color: white;
+            text-shadow: 3px 4px 6px rgb(68, 76, 92), 0 0 0 #000, 1px 4px 6px rgb(68, 76, 92);
+        }
+    
+        /* Gallery container */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            grid-template-rows: auto auto; /* 2 rows */
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px; /* Max width for the gallery */
+            margin: 80px auto 60px auto; /* Center the gallery with some space at the top */
+            box-sizing: border-box;
+        }
+    
+        /* Adjusting images and videos */
+        .gallery img, .gallery video {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+            object-fit: contain; /* Maintains the aspect ratio */
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+    
+        .gallery img:hover, .gallery video:hover {
+            transform: scale(1.05);
+        }
+    
+        /* Lightbox styling */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+    
+        .lightbox-content {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+        }
+    
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+    
+  </head>
+  <body>
+    <div class="gallery">
+        <img src="final.jpg" alt="Image 1" onclick="openLightbox(this)">
+        <video src="NYU_Katelyn Sum_Title Sequence.mp4" alt="Video 1" onclick="openLightbox(this)" muted></video>
+        <video src="cine-roman.mp4" alt="Video 2" poster="IMG_0467.png" onclick="openLightbox(this)" muted></video>
+        <img src="Katelyn Sum_Ks6293_Ian.png" alt="Image 3" onclick="openLightbox(this)">
+        <img src="sound visualization.png" alt="Image 4" onclick="openLightbox(this)">
+        <img src="ILOVENOODS.jpg" alt="Image 2" onclick="openLightbox(this)">
+    </div> 
+
+    <!-- Lightbox Container -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close">&times;</span>
+        <img id="lightbox-img" class="lightbox-content">
+        <video id="lightbox-video" class="lightbox-content" controls></video>
+    </div>
+    
+    <center>
+        <nav>
+            <a href="index.html">HOME </a>
+            <a href="about.html">ABOUT</a>
+            <a href="projects.html">PROJECTS</a>
+            <a href="gallery.html">GALLERY</a>
+        </nav>
+    </center> 
+
+    <h1 id="id1"> GALLERY</h1>
+
+    <script> 
+        function openLightbox(media) {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const lightboxVideo = document.getElementById("lightbox-video");
+
+            if (media.tagName === "IMG") {
+                lightboxImg.style.display = "block";
+                lightboxVideo.style.display = "none";
+                lightboxImg.src = media.src;
+            } else if (media.tagName === "VIDEO") {
+                lightboxVideo.style.display = "block";
+                lightboxImg.style.display = "none";
+                lightboxVideo.src = media.src;
+                lightboxVideo.play();
+            }
+            
+            lightbox.style.display = "flex";
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxVideo = document.getElementById("lightbox-video");
+
+            lightbox.style.display = "none";
+            lightboxVideo.pause();
+            lightboxVideo.src = ""; // Clear video source to stop loading
+        }
+    </script>
+  </body> 
+</html>

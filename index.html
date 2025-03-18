@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&display=swap">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    
+    <style>
+        body {
+            font-family: 'Fredoka', sans-serif;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around; 
+            background-color: black;
+            padding: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Fredoka', sans-serif;
+        }
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-size: 60px;
+            color: white;
+          text-shadow: 3px 4px 6px rgb(68, 76, 92), 0 0 0 #000, 1px 4px 6px rgb(68, 76, 92);
+        }
+        h2 {
+          font-family: 'Fredoka', sans-serif;
+            position:absolute;
+            top: 100px;
+            left: 20px;
+            font-size: 12px;
+            color: white;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    
+    </style>
+  </head>
+  <body>
+  <center>
+    <nav>
+        <a href="index.html">HOME </a>
+        <a href="about.html">ABOUT</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="gallery.html">GALLERY</a>
+    </nav>
+    <script src="dots.js"></script>
+    <h1 id="id1">WELCOME TO KATELYN'S PORTFOLIO</h1>
+    <h2 id ="id2"> Click Anywhere </h2>
+  </center> 
+  </body> 
+</html>

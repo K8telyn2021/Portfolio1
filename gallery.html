@@ -41,7 +41,7 @@
             text-shadow: 3px 4px 6px rgb(68, 76, 92), 0 0 0 #000, 1px 4px 6px rgb(68, 76, 92);
         }
     
-        /* Gallery container */
+       
         .gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* 3 columns */
@@ -53,12 +53,12 @@
             box-sizing: border-box;
         }
     
-        /* Adjusting images and videos */
+       
         .gallery img, .gallery video {
             width: 100%;
             height: auto;
             max-height: 100%;
-            object-fit: contain; /* Maintains the aspect ratio */
+            object-fit: contain; 
             border-radius: 10px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
@@ -68,7 +68,7 @@
             transform: scale(1.05);
         }
     
-        /* Lightbox styling */
+      
         .lightbox {
             display: none;
             position: fixed;
@@ -103,7 +103,7 @@
   <body>
     <div class="gallery">
         <img src="final.jpg" alt="Image 1" onclick="openLightbox(this)">
-        <video src="NYU_Katelyn Sum Collage Assignemnt.mp4" alt="Video 1" onclick="openLightbox(this)" muted></video>
+        <img src="Screenshot.png" alt ="Image 5" onclick="openLightbox(this)">
         <video src="cine-roman.mp4" alt="Video 2" poster="IMG_0467.png" onclick="openLightbox(this)" muted></video>
         <img src="Katelyn Sum_Ks6293_Ian.png" alt="Image 3" onclick="openLightbox(this)">
         <img src="sound visualization.png" alt="Image 4" onclick="openLightbox(this)">

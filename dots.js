@@ -53,7 +53,7 @@ class Dot{
   popIt(){
     let d=dist(this.x,this.y,mouseX, mouseY);
     if(this.size/2>d){
-      this.opacity=0;
+      this.opacity/=200;
 
     }
   }
